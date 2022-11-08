@@ -2,7 +2,7 @@ const path = require("path");
 const HTMLWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-  entry: path.join(__dirname, "/src/index.jsx"),
+  entry: path.join(__dirname, "/src/index.tsx"),
 
   output: {
     path: path.join(__dirname, "/dist"),
@@ -10,7 +10,7 @@ module.exports = {
   },
 
   resolve: {
-    extensions: [".jsx", ".js"],
+    extensions: [".tsx",".ts",".jsx", ".js"],
   },
 
   plugins: [
@@ -22,10 +22,10 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/,
+        test: /\.(ts|js)x$/,
         use: "babel-loader",
         exclude: /node_modules/,
-      },
+      },    
       {
         test: /\.css$/,
         use: ["style-loader", "css-loader"],
@@ -35,9 +35,9 @@ module.exports = {
         type: "asset/resource",
       },
       {
-        test:/\.svg$/,
-        use:"url-loader"
-      }
+        test: /\.svg$/,
+        use: "url-loader",
+      },
     ],
   },
 };
